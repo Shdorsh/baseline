@@ -7,13 +7,13 @@ void	array_foreach(void **array,void (*fn)(void *array))
 	}
 }
 
-struct Array {
+typedef struct Array {
 	void (*foreach)(void **array,void (*fn)(void *array));
-};
+} Array;
 
-struct Array	new_array()
+Array	new_array()
 {
-	struct Array	array;
+	Array	array;
 
 	array.foreach = array_foreach;
 	return (array);
@@ -35,7 +35,7 @@ int main(void) {
         NULL
     };
 
-    struct Array myArray = new_array();
+    Array myArray = new_array();
 
     myArray.foreach((void **)array, print_element);
 
