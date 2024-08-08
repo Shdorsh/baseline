@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   math.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shdorsh <shdorsh@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/07 23:42:37 by shdorsh           #+#    #+#             */
+/*   Updated: 2024/08/07 23:54:04 by shdorsh          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 int	math_power(int base, int power)
 {
 	while (power)
@@ -55,7 +67,8 @@ int	math_max(int array[])
 	return (result);
 }
 
-int	math_clamp(int number, int min, int max) {
+int	math_clamp(int number, int min, int max)
+{
 	if (number < min)
 	{
 		return (min);
@@ -66,31 +79,3 @@ int	math_clamp(int number, int min, int max) {
 	}
 	return (number);
 }
-
-struct Math {
-	int (*power)(int base, int power);
-	int (*factorial)(int base);
-	int (*min)(int array[]);
-	int (*max)(int array[]);
-	int (*clamp)(int number, int min, int max);
-};
-
-struct Math new_math(void)
-{
-	struct Math	mth;
-
-	mth.power = math_power;
-	mth.factorial = math_factorial;
-	mth.min = math_min;
-	mth.max = math_max;
-	mth.clamp = math_clamp;
-	return (mth);
-}
-/*
-#include <stdio.h>
-int main(void)
-{
-	struct Math Math = new_math();
-	printf("Clamp: %i", Math.clamp(-10, -5, 10));
-}
-*/

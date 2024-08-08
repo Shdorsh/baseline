@@ -1,19 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   int.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shdorsh <shdorsh@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/07 23:59:43 by shdorsh           #+#    #+#             */
+/*   Updated: 2024/08/08 00:01:12 by shdorsh          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <stdio.h>
 
-char *convert(int number, char *base)
+char	*convert(int number, char *base)
 {
 	char	*result;
-	int	initial_number;
-	int	base_size;
-	int	highest_digit;
+	int		initial_number;
+	int		base_size;
+	int		highest_digit;
 
 	initial_number = number;
 	base_size = 0;
 	highest_digit = 0;
 	while (base[base_size])
 	{
-
 		base_size++;
 	}
 	while (number)

@@ -1,4 +1,16 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   string.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shdorsh <shdorsh@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/07 23:54:27 by shdorsh           #+#    #+#             */
+/*   Updated: 2024/08/08 01:08:09 by shdorsh          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "char.h"
 
 void	string_assign(char *dest, char *src)
 {
@@ -13,60 +25,50 @@ void	string_assign(char *dest, char *src)
 		*dest = 0;
 		dest++;
 	}
-
 }
 
-unsigned int	string_size(char *array)
+unsigned int	string_size(char *string)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (array[i])
+	while (string[i])
 	{
 		i++;
 	}
 	return (i);
 }
 
-unsigned int	string_buffer(char *array)
+unsigned int	string_buffer(char *string)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (array[i])
+	while (string[i])
 	{
 		i++;
 	}
-	while (!array[i])
+	while (!string[i])
 	{
 		i++;
 	}
 	return (i - 1);
 }
 
-struct String {
-	void (*assign)(char *dest, char *src);
-	unsigned int (*size)(char *array);
-	unsigned int (*buffer)(char *array);
-};
-
-struct String	new_string()
+void	string_to_uppercase(char *string)
 {
-	struct String	str;
-
-              str.assign = string_assign;
-              str.size = string_size;
-              str.buffer = string_buffer;
-              return (str);
+	while (*string)
+	{
+		char_to_lowercase_letter(string);
+		*string++;
+	}
 }
-/*
-int	 main (void)
+
+void	string_to_lowercase(char *string)
 {
-              struct String	String;
-              char	string[3];
-
-              String = new_string();
-              String.assign(string, "AHA");
-              printf("Word: %s, s: %i, b: %i", string, String.(string), String.buffer(string));
+	while (*string)
+	{
+		char_to_uppercase_letter(string);
+		*string++;
+	}
 }
-*/
